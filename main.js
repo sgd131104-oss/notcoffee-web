@@ -18,10 +18,10 @@
    =================================================================== */
 
 // Tu link de Formspree (el que ya pegaste antes en index.html, pegalo aqui)
-var FORM_ENDPOINT = "";            // ej: "https://formspree.io/f/abcd1234"
+var FORM_ENDPOINT = "https://formspree.io/f/xwlvrary";            // ej: "https://formspree.io/f/abcd1234"
 
 // Tu correo de contacto (sale en los mensajes de error)
-var CORREO = "hola@notcoffee.mx";
+var CORREO = "dgs131104@gmail.com";
 
 // El codigo secreto de descuento y lo que ofrece
 var CODIGO_DESCUENTO = "PRIMERALATA";
