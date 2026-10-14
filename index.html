@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Not Coffee — Agua con cafeína y electrolitos</title>
+<meta name="description" content="No es café. Es agua. Agua con cafeína y electrolitos, sin gas, en lata de 473 ml. Hecho en México.">
+<meta property="og:title" content="Not Coffee — No es café. Es agua.">
+<meta property="og:description" content="Agua con cafeína y electrolitos. Únete a la lista de espera.">
+<meta name="theme-color" content="#0D0D0C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23363D07'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='900' font-size='14' fill='%23F2F0EA' text-anchor='middle'%3ENC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ====== COLORES: cambia aqui y se cambia en todo el sitio ====== */
+  :root{
+    --negro:#0D0D0C;
+    --negro-2:#171715;
+    --linea:#2A2926;
+    --hueso:#F2F0EA;
+    --gris-1:#C9C6BD;
+    --gris-2:#A8A59C;
+    --gris-3:#8A877F;
+    --oliva:#363D07;        /* acento principal */
+    --oliva-2:#5E6B32;      /* acento medio */
+    --oliva-texto:#A0A878;  /* oliva para texto sobre negro */
+    --oliva-fondo:#22261A;  /* fondo seccion tienda */
+    --oliva-caja:#30351F;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--negro);color:var(--hueso);font-family:'Archivo',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--hueso)}a:hover{color:var(--oliva-texto)}
+  img{max-width:100%}
+  .wrap{max-width:1280px;margin:0 auto;padding-left:24px;padding-right:24px}
+  .mono{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  h1,h2{margin:0;font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.03em}
+  h3{margin:0}
+  p{margin:0}
+  .h2{font-size:clamp(40px,5vw,72px)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 28px;font:inherit;font-weight:700;font-size:16px;border:0;border-radius:999px;cursor:pointer;text-decoration:none;transition:filter .15s}
+  .btn:hover{filter:brightness(1.2)}
+  .btn-oliva{background:var(--oliva);color:var(--hueso)}
+  .btn-oliva:hover{color:var(--hueso)}
+  .btn-hueso{background:var(--hueso);color:var(--negro)}
+  .btn-hueso:hover{color:var(--negro)}
+  .btn-borde{border:1px solid var(--hueso);background:transparent;color:var(--hueso)}
+  .input{flex:1 1 260px;min-width:0;height:56px;padding:0 20px;font:inherit;font-size:16px;border-radius:999px}
+  .input::placeholder{color:var(--gris-3)}
+  .form{display:flex;flex-wrap:wrap;gap:12px}
+  .form-msg{font-size:14px;min-height:20px}
+
+  /* NAV */
+  header{border-bottom:1px solid var(--linea);position:sticky;top:0;background:rgba(13,13,12,.92);backdrop-filter:blur(8px);z-index:10}
+  nav{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px}
+  .logo{font-weight:900;font-size:22px;letter-spacing:-.02em;text-decoration:none;text-transform:uppercase}
+  .menu{display:flex;flex-wrap:wrap;gap:28px;align-items:center;font-size:15px}
+  .menu a{text-decoration:none}
+  .menu .btn{min-height:44px;padding:0 20px}
+  .cart{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--linea);border-radius:999px}
+  @media (max-width:760px){.menu .link{display:none}.menu{gap:12px}}
+
+  /* HERO */
+  .hero{display:flex;flex-wrap:wrap;gap:56px;align-items:center;padding-top:88px;padding-bottom:96px}
+  .hero-txt{flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:28px}
+  .hero h1{font-size:clamp(56px,9vw,132px);line-height:.9;letter-spacing:-.04em}
+  .hero .lead{font-size:21px;line-height:1.5;color:var(--gris-1);max-width:560px}
+  .hero .input{color:var(--hueso);background:var(--negro-2);border:1px solid #3A3934}
+  .hero .form{max-width:560px}
+  .lata-box{flex:1 1 320px;display:flex;justify-content:center}
+  .lata{width:240px;height:480px;background:var(--hueso);color:var(--negro);border-radius:34px 34px 28px 28px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:36px 0 30px;box-shadow:0 0 0 10px var(--negro-2),0 0 0 11px var(--linea)}
+  .lata .tapa{width:180px;height:8px;border-radius:4px;background:#D9D6CC}
+  .lata .nombre{writing-mode:vertical-rl;transform:rotate(180deg);font-weight:900;font-size:64px;letter-spacing:-.03em;text-transform:uppercase;line-height:.95}
+  .lata .info{display:flex;flex-direction:column;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+
+  /* DATOS */
+  .datos{border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+  .datos .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+  .dato{padding:32px 24px;display:flex;flex-direction:column;gap:6px;border-left:1px solid var(--linea)}
+  .dato:first-child{border-left:0;padding-left:0}
+  .dato b{font-weight:900;font-size:40px;letter-spacing:-.02em}
+  .dato span{font-size:15px;color:var(--gris-2)}
+  @media (max-width:520px){.dato{border-left:0;padding-left:0;border-top:1px solid var(--linea)}.dato:first-child{border-top:0}}
+
+  /* PRODUCTO */
+  .seccion{padding-top:112px;padding-bottom:112px;display:flex;flex-direction:column;gap:56px}
+  .intro{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:end}
+  .intro h2{max-width:720px}
+  .intro p{font-size:18px;line-height:1.55;color:var(--gris-1);max-width:420px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .card{background:var(--negro-2);border:1px solid var(--linea);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:16px}
+  .card .num{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--oliva-texto)}
+  .card h3{font-size:26px;font-weight:800}
+  .card p{font-size:16px;line-height:1.55;color:var(--gris-2)}
+
+  /* TIENDA */
+  .tienda{background:var(--oliva-fondo)}
+  .tienda .wrap{padding-top:112px;padding-bottom:112px;display:flex;flex-wrap:wrap;gap:56px;align-items:center}
+  .latas{flex:1 1 360px;min-height:420px;background:var(--oliva-caja);border-radius:24px;display:flex;align-items:center;justify-content:center;gap:16px}
+  .latas div{width:96px;height:200px;background:var(--hueso);border-radius:16px 16px 12px 12px}
+  .tienda-txt{flex:999 1 480px;min-width:0;display:flex;flex-direction:column;gap:24px}
+  .tienda h2{font-size:clamp(40px,5vw,64px)}
+  .tienda .mono,.tienda .nota{color:#C3C8A4}
+  .tienda .desc{font-size:18px;line-height:1.55;color:#DCDFCB}
+  fieldset{border:0;padding:0;margin:0}
+  legend{font-weight:700;font-size:15px;margin-bottom:12px}
+  .packs{display:flex;flex-wrap:wrap;gap:12px}
+  .pack{min-width:140px;min-height:72px;padding:14px 20px;text-align:left;font:inherit;border-radius:16px;cursor:pointer;background:transparent;color:var(--hueso);border:2px solid #4E5530}
+  .pack[aria-pressed="true"]{background:var(--oliva-2);border-color:var(--oliva-2)}
+  .pack b{display:block;font-weight:800;font-size:18px}
+  .pack span{display:block;font-size:14px;margin-top:4px}
+  .comprar{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .tienda .btn-oliva{background:var(--oliva-2)}
+  .nota{font-size:14px}
+
+  /* PARA QUIEN */
+  .grid-q{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--linea);border:1px solid var(--linea);border-radius:20px;overflow:hidden}
+  .grid-q div{background:var(--negro);padding:32px;display:flex;flex-direction:column;gap:10px}
+  .grid-q h3{font-size:22px;font-weight:800}
+  .grid-q p{font-size:15px;line-height:1.55;color:var(--gris-2)}
+  .colab{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;background:var(--negro-2);border:1px solid var(--linea);border-radius:20px;padding:32px}
+  .colab b{font-weight:800;font-size:22px;display:block;margin-bottom:6px}
+  .colab span{font-size:15px;color:var(--gris-2)}
+
+  /* INVERSIONISTAS */
+  .inv{border-top:1px solid var(--linea)}
+  .inv .wrap{padding-top:112px;padding-bottom:112px;display:flex;flex-wrap:wrap;gap:56px}
+  .inv-izq{flex:1 1 380px;display:flex;flex-direction:column;gap:20px}
+  .inv-izq .mono{color:var(--oliva-texto)}
+  .inv h2{font-size:clamp(40px,5vw,64px)}
+  .inv-der{flex:999 1 480px;min-width:0;display:flex;flex-direction:column;gap:28px}
+  .inv-der>p{font-size:18px;line-height:1.6;color:var(--gris-1)}
+  .puntos{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+  .puntos div{border-top:2px solid var(--oliva-2);padding-top:16px;display:flex;flex-direction:column;gap:6px}
+  .puntos b{font-weight:800;font-size:18px}
+  .puntos span{font-size:15px;color:var(--gris-2)}
+
+  /* LISTA */
+  .lista{background:var(--oliva)}
+  .lista .wrap{padding-top:96px;padding-bottom:96px;display:flex;flex-direction:column;gap:28px;align-items:flex-start}
+  .lista h2{font-size:clamp(48px,7vw,104px);line-height:.9;letter-spacing:-.04em}
+  .lista p{font-size:19px;line-height:1.5;max-width:560px}
+  .lista .form{width:100%;max-width:620px}
+  .lista .input{height:60px;color:var(--negro);background:var(--hueso);border:0}
+  .lista .btn{min-height:60px;background:var(--negro);color:var(--hueso)}
+
+  /* FOOTER */
+  footer .wrap{padding-top:48px;padding-bottom:48px;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center;font-size:14px;color:var(--gris-3)}
+  footer a{color:var(--gris-3)}
+  footer .logo{font-size:18px}
+</style>
+</head>
+<body>
+
+<!-- =====================================================================
+  CONFIGURACION RAPIDA
+  1) FORMULARIO: crea un form gratis en https://formspree.io y pega tu
+     link en FORM_ENDPOINT (abajo, en el <script>). Ej: https://formspree.io/f/abcd1234
+  2) CORREO: busca "hola@notcoffee.mx" y cambialo por tu correo real.
+  3) Todo lo que esta entre [CORCHETES] es info pendiente.
+===================================================================== -->
+
+<header>
+  <nav class="wrap" aria-label="Principal">
+    <a href="#top" class="logo">Not Coffee</a>
+    <div class="menu">
+      <a class="link" href="#producto">Producto</a>
+      <a class="link" href="#tienda">Tienda</a>
+      <a class="link" href="#para-quien">Para quién</a>
+      <a class="link" href="#inversion">Inversionistas</a>
+      <a href="#tienda" class="cart" aria-label="Carrito">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+      </a>
+      <a href="#lista" class="btn btn-oliva">Unirme a la lista</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section id="top" class="wrap hero">
+    <div class="hero-txt">
+      <div class="mono" style="color:var(--gris-1)">Próximamente · Hecho en México</div>
+      <h1>No es café.<br>Es agua.</h1>
+      <p class="lead">Agua con cafeína y electrolitos. Te hidrata como el agua y te despierta como el café, sin el bajón de una energética.</p>
+      <form class="form js-lista" novalidate>
+        <label for="email-hero" class="sr">Tu correo</label>
+        <input id="email-hero" class="input" type="email" name="email" placeholder="tu@correo.com" required autocomplete="email">
+        <input type="hidden" name="origen" value="hero">
+        <button type="submit" class="btn btn-oliva">Avísame del lanzamiento</button>
+      </form>
+      <div class="form-msg" role="status" aria-live="polite" style="color:var(--gris-3)">Los primeros en la lista reciben [BENEFICIO DE LANZAMIENTO].</div>
+    </div>
+    <div class="lata-box">
+      <div class="lata" role="img" aria-label="Lata de Not Coffee de 473 ml">
+        <div class="tapa"></div>
+        <div class="nombre">Not Coffee</div>
+        <div class="info"><span>Agua + cafeína</span><span>473 ml · sin gas</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATOS -->
+  <section class="datos" aria-label="Datos clave">
+    <div class="wrap">
+      <div class="dato"><b>473 ml</b><span>Lata grande, para todo el día</span></div>
+      <div class="dato"><b>[XX] mg</b><span>Cafeína por lata</span></div>
+      <div class="dato"><b>Electrolitos</b><span>[SODIO, POTASIO, MAGNESIO]</span></div>
+      <div class="dato"><b>Sin Gas</b><span>Se toma como agua</span></div>
+    </div>
+  </section>
+
+  <!-- PRODUCTO -->
+  <section id="producto" class="wrap seccion">
+    <div class="intro">
+      <h2 class="h2">Mente y cuerpo en la misma lata.</h2>
+      <p>Tomamos lo más aburrido del refri, el agua, y lo volvimos lo que realmente necesitas a las 3 de la tarde.</p>
+    </div>
+    <div class="cards">
+      <article class="card"><div class="num">01</div><h3>Hidrata de verdad</h3><p>Electrolitos para reponer lo que pierdes entrenando, trabajando o simplemente viviendo en el calor.</p></article>
+      <article class="card"><div class="num">02</div><h3>Te enfoca</h3><p>Cafeína en una dosis pensada para rendir, no para acelerarte. Energía limpia para la mente.</p></article>
+      <article class="card"><div class="num">03</div><h3>Más limpia que una energética</h3><p>Sin gas y con ingredientes que puedes leer. [CONFIRMAR: SIN AZÚCAR / ENDULZANTE].</p></article>
+    </div>
+  </section>
+
+  <!-- TIENDA -->
+  <section id="tienda" class="tienda">
+    <div class="wrap">
+      <div class="latas" aria-hidden="true"><div></div><div></div><div></div></div>
+      <div class="tienda-txt">
+        <div class="mono">Preventa</div>
+        <h2>Not Coffee Original</h2>
+        <p class="desc">Agua con cafeína y electrolitos · 473 ml · sin gas.</p>
+        <fieldset>
+          <legend>Elige tu paquete</legend>
+          <div class="packs">
+            <!-- data-link: cuando tengas links de pago (Stripe / Mercado Pago) pegalos aqui -->
+            <button type="button" class="pack" aria-pressed="false" data-nombre="1 lata" data-link=""><b>1 lata</b><span>[PRECIO]</span></button>
+            <button type="button" class="pack" aria-pressed="true" data-nombre="six pack" data-link=""><b>Six pack</b><span>[PRECIO]</span></button>
+            <button type="button" class="pack" aria-pressed="false" data-nombre="caja de 12" data-link=""><b>Caja de 12</b><span>[PRECIO]</span></button>
+          </div>
+        </fieldset>
+        <div class="comprar">
+          <a href="#lista" class="btn btn-oliva js-apartar">Apartar six pack</a>
+          <span class="nota">Envíos en [CIUDADES] · Pago con [MÉTODOS]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUIEN -->
+  <section id="para-quien" class="wrap seccion" style="gap:48px">
+    <h2 class="h2">Para cualquiera<br>que tenga sed y cosas que hacer.</h2>
+    <div class="grid-q">
+      <div><h3>Después del pilates</h3><p>Repón electrolitos y sal con energía para el resto del día.</p></div>
+      <div><h3>En la oficina</h3><p>El tercer café del día, pero que sí te hidrata.</p></div>
+      <div><h3>Creando contenido</h3><p>Horas de grabar y editar sin perder el foco.</p></div>
+      <div><h3>Mamás en movimiento</h3><p>Cuidarte también es tener energía para todo lo demás.</p></div>
+    </div>
+    <div class="colab">
+      <div><b>¿Tienes un estudio, coworking o comunidad?</b><span>Queremos estar en tu refri. Hablemos de colaboraciones.</span></div>
+      <a href="mailto:hola@notcoffee.mx?subject=Colaboración%20Not%20Coffee" class="btn btn-borde">Colaborar con Not Coffee</a>
+    </div>
+  </section>
+
+  <!-- INVERSIONISTAS -->
+  <section id="inversion" class="inv">
+    <div class="wrap">
+      <div class="inv-izq">
+        <div class="mono">Inversionistas</div>
+        <h2>Una categoría que en México casi no existe.</h2>
+      </div>
+      <div class="inv-der">
+        <p>El agua funcional con cafeína ya creció en otros mercados. En México el espacio está abierto, entre el café, las energéticas y las bebidas de hidratación. Not Coffee quiere ser la marca que lo defina.</p>
+        <div class="puntos">
+          <div><b>Producción</b><span>Maquila nacional, fórmula importada</span></div>
+          <div><b>Canal inicial</b><span>Estudios wellness, coworkings, venta en línea</span></div>
+          <div><b>Etapa</b><span>[PRE-LANZAMIENTO / RONDA]</span></div>
+        </div>
+        <div><a href="mailto:hola@notcoffee.mx?subject=Deck%20Not%20Coffee" class="btn btn-hueso">Pedir el deck</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LISTA DE ESPERA -->
+  <section id="lista" class="lista">
+    <div class="wrap">
+      <h2>Sé de los primeros.</h2>
+      <p>Déjanos tu correo y te avisamos el día que salga la primera lata.</p>
+      <form class="form js-lista" novalidate>
+        <label for="email-lista" class="sr">Tu correo</label>
+        <input id="email-lista" class="input" type="email" name="email" placeholder="tu@correo.com" required autocomplete="email">
+        <input type="hidden" name="origen" value="lista">
+        <button type="submit" class="btn">Unirme</button>
+      </form>
+      <div class="form-msg" role="status" aria-live="polite"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">Not Coffee</div>
+    <div style="display:flex;flex-wrap:wrap;gap:24px">
+      <a href="https://instagram.com/">Instagram</a>
+      <a href="https://tiktok.com/">TikTok</a>
+      <a href="mailto:hola@notcoffee.mx">Contacto</a>
+    </div>
+    <div>© <span id="anio">2026</span> Not Coffee · Mérida, Yucatán</div>
+  </div>
+</footer>
+
+<script>
+  // ====== PEGA AQUI TU LINK DE FORMSPREE ======
+  var FORM_ENDPOINT = ""; // ej: "https://formspree.io/f/abcd1234"
+
+  // Formularios de lista de espera
+  document.querySelectorAll('.js-lista').forEach(function (form) {
+    var msg = form.parentElement.querySelector('.form-msg');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = form.querySelector('input[type=email]');
+      if (!email.value || !email.checkValidity()) {
+        msg.textContent = 'Escribe un correo válido.';
+        email.focus();
+        return;
+      }
+      if (!FORM_ENDPOINT) {
+        msg.textContent = 'Formulario en configuración. Escríbenos a hola@notcoffee.mx';
+        return;
+      }
+      var btn = form.querySelector('button');
+      btn.disabled = true;
+      msg.textContent = 'Enviando…';
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      }).then(function (r) {
+        if (r.ok) { form.reset(); msg.textContent = '¡Listo! Ya estás en la lista.'; }
+        else { msg.textContent = 'Algo falló, intenta otra vez.'; }
+      }).catch(function () {
+        msg.textContent = 'Sin conexión, intenta otra vez.';
+      }).finally(function () { btn.disabled = false; });
+    });
+  });
+
+  // Selector de paquetes
+  var packs = document.querySelectorAll('.pack');
+  var apartar = document.querySelector('.js-apartar');
+  packs.forEach(function (p) {
+    p.addEventListener('click', function () {
+      packs.forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+      p.setAttribute('aria-pressed', 'true');
+      apartar.textContent = 'Apartar ' + p.dataset.nombre;
+      apartar.href = p.dataset.link || '#lista';
+    });
+  });
+
+  document.getElementById('anio').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
