@@ -1,0 +1,252 @@
+/* ===================================================================
+   styles.css  —  EL "VESTIDO" DEL SITIO
+   📘 APRENDE: HTML es el esqueleto (que hay en la pagina) y CSS es el
+   estilo (colores, tamaños, espacios). Este archivo lo usan TODAS las
+   paginas, asi que si cambias algo aqui, cambia en todo el sitio.
+
+   Como se lee una regla de CSS:
+       .btn { color: red; }
+        ^      ^      ^
+        |      |      valor
+        |      propiedad
+        selector: a QUE elementos aplica (.algo = elementos con class="algo")
+   =================================================================== */
+
+
+/* ===================================================================
+   ✏️ TU CAMBIO: COLORES DE LA MARCA
+   📘 APRENDE: estas son "variables". Se definen una vez aqui y se usan
+   en todo el archivo como var(--nombre). Cambia un color aqui y se
+   cambia en todo el sitio. Prueba: cambia --oliva por #8B0000 y mira.
+   =================================================================== */
+:root {
+  --negro: #0D0D0C;
+  --negro-2: #171715;
+  --linea: #2A2926;
+  --hueso: #F2F0EA;
+  --gris-1: #C9C6BD;
+  --gris-2: #A8A59C;
+  --gris-3: #8A877F;
+  --oliva: #363D07;        /* acento principal (botones, lista) */
+  --oliva-2: #5E6B32;      /* acento medio */
+  --oliva-texto: #A0A878;  /* oliva para letras sobre negro */
+  --oliva-fondo: #22261A;  /* fondo de la tienda */
+  --oliva-caja: #30351F;
+}
+
+/* ---------- BASE: reglas que aplican a todo ---------- */
+* { box-sizing: border-box; }               /* el borde cuenta dentro del tamaño */
+html { scroll-behavior: smooth; }           /* scroll suave al dar clic en #links */
+body {
+  margin: 0;
+  background: var(--negro);
+  color: var(--hueso);
+  font-family: 'Archivo', system-ui, sans-serif;  /* ✏️ la tipografia */
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--hueso); }
+a:hover { color: var(--oliva-texto); }      /* :hover = cuando pasas el mouse */
+h1, h2 { margin: 0; font-weight: 900; text-transform: uppercase; line-height: .95; letter-spacing: -.03em; }
+h3, p { margin: 0; }
+
+/* .wrap centra el contenido y le pone margen a los lados */
+.wrap { max-width: 1280px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+
+/* textos chiquitos tipo etiqueta, en letra de maquina */
+.mono { font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+
+/* .sr = solo para lectores de pantalla (personas ciegas). No se ve pero se lee */
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* clamp(minimo, ideal, maximo): el titulo crece con la pantalla pero con limites */
+.h2 { font-size: clamp(40px, 5vw, 72px); }
+.eyebrow { color: var(--oliva-texto); }
+
+
+/* ---------- BOTONES ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 56px; padding: 0 28px;
+  font: inherit; font-weight: 700; font-size: 16px;
+  border: 0; border-radius: 999px;          /* 999px = esquinas totalmente redondas */
+  cursor: pointer; text-decoration: none;
+  transition: filter .15s;                  /* animacion suave al pasar el mouse */
+}
+.btn:hover { filter: brightness(1.25); }
+.btn-oliva { background: var(--oliva); color: var(--hueso); }
+.btn-oliva:hover { color: var(--hueso); }
+.btn-hueso { background: var(--hueso); color: var(--negro); }
+.btn-hueso:hover { color: var(--negro); }
+.btn-borde { border: 1px solid var(--hueso); background: transparent; color: var(--hueso); }
+
+
+/* ---------- FORMULARIOS ---------- */
+.form { display: flex; flex-wrap: wrap; gap: 12px; position: relative; }
+.input { flex: 1 1 260px; min-width: 0; height: 56px; padding: 0 20px; font: inherit; font-size: 16px; border-radius: 999px; }
+.input::placeholder { color: var(--gris-3); }
+.input-oscuro { color: var(--hueso); background: var(--negro-2); border: 1px solid #3A3934; }
+.form-msg { font-size: 14px; min-height: 20px; color: var(--gris-3); }
+
+
+/* ===================================================================
+   MENU DE ARRIBA (header)
+   📘 APRENDE: "sticky" hace que el menu se quede pegado arriba al bajar.
+   =================================================================== */
+header { border-bottom: 1px solid var(--linea); position: sticky; top: 0; background: rgba(13,13,12,.92); backdrop-filter: blur(8px); z-index: 10; }
+nav { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; padding-top: 14px; padding-bottom: 14px; }
+.logo { font-weight: 900; font-size: 22px; letter-spacing: -.02em; text-decoration: none; text-transform: uppercase; }
+.menu { display: flex; gap: 24px; align-items: center; font-size: 15px; }
+.menu a { text-decoration: none; }
+.menu .btn { min-height: 44px; padding: 0 20px; }
+/* la pagina en la que estas se marca con class="activo" en su link */
+.menu a.activo { color: var(--oliva-texto); text-decoration: underline; text-underline-offset: 6px; }
+
+/* 📘 APRENDE: @media = "solo si la pantalla mide menos de 760px" (celular).
+   En celular el menu pasa abajo y se puede deslizar de lado. */
+@media (max-width: 760px) {
+  .menu { order: 3; width: 100%; overflow-x: auto; gap: 18px; padding-bottom: 4px; white-space: nowrap; }
+  .menu .btn { display: none; }
+}
+
+
+/* ---------- ENCABEZADO DE CADA PAGINA INTERNA ---------- */
+.pagina-top { padding-top: 88px; padding-bottom: 72px; display: flex; flex-direction: column; gap: 20px; border-bottom: 1px solid var(--linea); }
+.pagina-top h1 { font-size: clamp(48px, 8vw, 112px); line-height: .9; letter-spacing: -.04em; }
+.pagina-top p { font-size: 20px; line-height: 1.5; color: var(--gris-1); max-width: 640px; }
+
+
+/* ---------- HERO (portada del inicio) ---------- */
+.hero { display: flex; flex-wrap: wrap; gap: 56px; align-items: center; padding-top: 88px; padding-bottom: 96px; }
+.hero-txt { flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 28px; }
+.hero h1 { font-size: clamp(56px, 9vw, 132px); line-height: .9; letter-spacing: -.04em; }
+.hero .lead { font-size: 21px; line-height: 1.5; color: var(--gris-1); max-width: 560px; }
+.hero .form { max-width: 560px; }
+
+/* La lata dibujada solo con CSS (no es imagen) */
+.lata-box { flex: 1 1 320px; display: flex; justify-content: center; }
+.lata { width: 240px; height: 480px; background: var(--hueso); color: var(--negro); border-radius: 34px 34px 28px 28px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 36px 0 30px; box-shadow: 0 0 0 10px var(--negro-2), 0 0 0 11px var(--linea); }
+.lata .tapa { width: 180px; height: 8px; border-radius: 4px; background: #D9D6CC; }
+.lata .nombre { writing-mode: vertical-rl; transform: rotate(180deg); font-weight: 900; font-size: 64px; letter-spacing: -.03em; text-transform: uppercase; line-height: .95; }
+.lata .info { display: flex; flex-direction: column; align-items: center; gap: 4px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+
+
+/* ---------- FRANJA DE DATOS ---------- */
+.datos { border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); }
+.datos .wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.dato { padding: 32px 24px; display: flex; flex-direction: column; gap: 6px; border-left: 1px solid var(--linea); }
+.dato:first-child { border-left: 0; padding-left: 0; }
+.dato b { font-weight: 900; font-size: 40px; letter-spacing: -.02em; }
+.dato span { font-size: 15px; color: var(--gris-2); }
+@media (max-width: 520px) {
+  .dato { border-left: 0; padding-left: 0; border-top: 1px solid var(--linea); }
+  .dato:first-child { border-top: 0; }
+}
+
+
+/* ---------- SECCIONES Y TARJETAS ---------- */
+.seccion { padding-top: 104px; padding-bottom: 104px; display: flex; flex-direction: column; gap: 48px; }
+.seccion + .seccion { padding-top: 0; }
+.intro { display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: end; }
+.intro h2 { max-width: 720px; }
+.intro p { font-size: 18px; line-height: 1.55; color: var(--gris-1); max-width: 420px; }
+
+/* 📘 APRENDE: "grid" acomoda cosas en columnas. auto-fit + minmax hace que
+   en compu salgan 3 columnas y en celular 1, sin escribir nada extra. */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.card { background: var(--negro-2); border: 1px solid var(--linea); border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 14px; }
+.card .num { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--oliva-texto); }
+.card h3 { font-size: 24px; font-weight: 800; }
+.card p, .card li { font-size: 16px; line-height: 1.55; color: var(--gris-2); }
+.card ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+a.card { text-decoration: none; transition: border-color .15s; }
+a.card:hover { border-color: var(--oliva-texto); color: var(--hueso); }
+.card .ir { margin-top: auto; font-weight: 700; color: var(--oliva-texto); }
+
+
+/* ---------- TABLA COMPARATIVA ---------- */
+.tabla-box { overflow-x: auto; border: 1px solid var(--linea); border-radius: 20px; }
+table { width: 100%; border-collapse: collapse; min-width: 640px; }
+th, td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--linea); font-size: 15px; }
+thead th { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--gris-2); }
+tbody tr:last-child td { border-bottom: 0; }
+td.nos, th.nos { background: var(--oliva-fondo); color: var(--hueso); font-weight: 700; }
+
+
+/* ---------- PREGUNTAS FRECUENTES (se abren y cierran) ----------
+   📘 APRENDE: <details> y <summary> son etiquetas de HTML que ya se abren
+   y cierran solas, sin JavaScript. */
+.faq { display: flex; flex-direction: column; border-top: 1px solid var(--linea); }
+.faq details { border-bottom: 1px solid var(--linea); }
+.faq summary { cursor: pointer; padding: 24px 0; font-size: 20px; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; color: var(--oliva-texto); font-weight: 400; }
+.faq details[open] summary::after { content: '–'; }
+.faq details p { padding-bottom: 24px; font-size: 16px; line-height: 1.6; color: var(--gris-2); max-width: 760px; }
+
+
+/* ---------- TIENDA ---------- */
+.tienda { background: var(--oliva-fondo); }
+.tienda .wrap { padding-top: 104px; padding-bottom: 104px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center; }
+.latas { flex: 1 1 360px; min-height: 420px; background: var(--oliva-caja); border-radius: 24px; display: flex; align-items: center; justify-content: center; gap: 16px; }
+.latas div { width: 96px; height: 200px; background: var(--hueso); border-radius: 16px 16px 12px 12px; }
+.tienda-txt { flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+.tienda h2 { font-size: clamp(40px, 5vw, 64px); }
+.tienda .mono, .tienda .nota { color: #C3C8A4; }
+.tienda .desc { font-size: 18px; line-height: 1.55; color: #DCDFCB; }
+fieldset { border: 0; padding: 0; margin: 0; }
+legend { font-weight: 700; font-size: 15px; margin-bottom: 12px; }
+.packs { display: flex; flex-wrap: wrap; gap: 12px; }
+.pack { min-width: 140px; min-height: 72px; padding: 14px 20px; text-align: left; font: inherit; border-radius: 16px; cursor: pointer; background: transparent; color: var(--hueso); border: 2px solid #4E5530; }
+/* el paquete elegido (lo marca main.js) */
+.pack[aria-pressed="true"] { background: var(--oliva-2); border-color: var(--oliva-2); }
+.pack b { display: block; font-weight: 800; font-size: 18px; }
+.pack span { display: block; font-size: 14px; margin-top: 4px; }
+.comprar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.tienda .btn-oliva { background: var(--oliva-2); }
+.nota { font-size: 14px; }
+
+
+/* ---------- PARA QUIEN ---------- */
+.grid-q { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1px; background: var(--linea); border: 1px solid var(--linea); border-radius: 20px; overflow: hidden; }
+.grid-q > div { background: var(--negro); padding: 32px; display: flex; flex-direction: column; gap: 10px; }
+.grid-q h3 { font-size: 22px; font-weight: 800; }
+.grid-q p { font-size: 15px; line-height: 1.55; color: var(--gris-2); }
+.caja { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; background: var(--negro-2); border: 1px solid var(--linea); border-radius: 20px; padding: 32px; }
+.caja b { font-weight: 800; font-size: 22px; display: block; margin-bottom: 6px; }
+.caja span { font-size: 15px; color: var(--gris-2); }
+
+
+/* ---------- INVERSIONISTAS ---------- */
+.puntos { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+.puntos > div { border-top: 2px solid var(--oliva-2); padding-top: 16px; display: flex; flex-direction: column; gap: 6px; }
+.puntos b { font-weight: 800; font-size: 18px; }
+.puntos span { font-size: 15px; line-height: 1.5; color: var(--gris-2); }
+.texto-largo { font-size: 18px; line-height: 1.65; color: var(--gris-1); max-width: 760px; display: flex; flex-direction: column; gap: 18px; }
+
+
+/* ---------- LISTA DE ESPERA (franja oliva) ---------- */
+.lista { background: var(--oliva); }
+.lista .wrap { padding-top: 96px; padding-bottom: 96px; display: flex; flex-direction: column; gap: 28px; align-items: flex-start; }
+.lista h2 { font-size: clamp(48px, 7vw, 104px); line-height: .9; letter-spacing: -.04em; }
+.lista p { font-size: 19px; line-height: 1.5; max-width: 560px; }
+.lista .form { width: 100%; max-width: 620px; }
+.lista .input { height: 60px; color: var(--negro); background: var(--hueso); border: 0; }
+.lista .form .btn { min-height: 60px; background: var(--negro); color: var(--hueso); }
+.lista .form-msg { color: var(--hueso); }
+
+
+/* ---------- FOOTER + SECRETO ---------- */
+footer .wrap { padding-top: 48px; padding-bottom: 32px; display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: center; font-size: 14px; color: var(--gris-3); }
+footer a { color: var(--gris-3); }
+footer .logo { font-size: 18px; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 24px; }
+
+/* El boton secreto casi no se ve a proposito: mismo color que el fondo */
+.secreto { text-align: center; padding: 8px 24px 40px; }
+.secreto button { background: none; border: 0; color: #2E2D2A; font: inherit; font-family: 'JetBrains Mono', monospace; font-size: 12px; cursor: pointer; padding: 12px; }
+.secreto button:hover { color: var(--gris-3); }
+.cupon { display: inline-flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 12px; padding: 28px 36px; border: 2px dashed var(--oliva-texto); border-radius: 20px; }
+.cupon[hidden] { display: none; }   /* hidden = escondido hasta que main.js lo muestre */
+.cupon .codigo { font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 500; letter-spacing: .08em; color: var(--hueso); }
+.cupon small { color: var(--gris-2); font-size: 14px; }
+.cupon .btn { min-height: 44px; }

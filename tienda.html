@@ -1,0 +1,108 @@
+<!doctype html>
+<!-- ===================================================================
+  tienda.html  —  PAGINA DE TIENDA (preventa)
+  📘 APRENDE: los botones de paquete los controla main.js (seccion 2).
+==================================================================== -->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tienda — Not Coffee</title>
+  <meta name="description" content="Aparta tus primeras latas de Not Coffee: lata, six pack o caja de 12.">
+  <meta name="theme-color" content="#0D0D0C">
+  <link rel="icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <nav class="wrap" aria-label="Principal">
+    <a href="index.html" class="logo">Not Coffee</a>
+    <div class="menu">
+      <a href="producto.html">Producto</a>
+      <a href="tienda.html" class="activo" aria-current="page">Tienda</a>
+      <a href="para-quien.html">Para quién</a>
+      <a href="inversionistas.html">Inversionistas</a>
+      <a href="index.html#lista" class="btn btn-oliva">Unirme a la lista</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="tienda">
+    <div class="wrap">
+      <div class="latas" aria-hidden="true"><div></div><div></div><div></div></div>
+      <div class="tienda-txt">
+        <div class="mono">Preventa</div>
+        <h1 style="font-size:clamp(40px,5vw,64px)">Not Coffee Original</h1>
+        <p class="desc">Agua con cafeína y electrolitos · 473 ml · sin gas.</p>
+        <fieldset>
+          <legend>Elige tu paquete</legend>
+          <div class="packs">
+            <!-- ✏️ TU CAMBIO: precios en <span>, y en data-link pega el link de pago
+                 de Stripe o Mercado Pago de cada paquete cuando lo tengas.
+                 📘 APRENDE: "data-algo" son datos extra que main.js puede leer. -->
+            <button type="button" class="pack" aria-pressed="false" data-nombre="1 lata" data-link=""><b>1 lata</b><span>[PRECIO]</span></button>
+            <button type="button" class="pack" aria-pressed="true" data-nombre="six pack" data-link=""><b>Six pack</b><span>[PRECIO]</span></button>
+            <button type="button" class="pack" aria-pressed="false" data-nombre="caja de 12" data-link=""><b>Caja de 12</b><span>[PRECIO]</span></button>
+          </div>
+        </fieldset>
+        <div class="comprar">
+          <a href="index.html#lista" class="btn btn-oliva js-apartar">Apartar six pack</a>
+          <!-- ✏️ TU CAMBIO -->
+          <span class="nota">Envíos en [CIUDADES] · Pago con [MÉTODOS]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMO FUNCIONA LA PREVENTA ============ -->
+  <section class="wrap seccion">
+    <h2 class="h2">Cómo funciona la preventa</h2>
+    <div class="cards">
+      <div class="card"><div class="num">01</div><h3>Apartas</h3><p>Eliges tu paquete y lo apartas [CON PAGO / SIN PAGO — DEFINIR].</p></div>
+      <div class="card"><div class="num">02</div><h3>Producimos</h3><p>La primera producción sale en [FECHA ESTIMADA].</p></div>
+      <div class="card"><div class="num">03</div><h3>Te llega</h3><p>Envío a [CIUDADES] o recoges en [PUNTO DE ENTREGA EN MÉRIDA].</p></div>
+    </div>
+  </section>
+
+  <section class="wrap seccion">
+    <h2 class="h2">Sobre tu pedido</h2>
+    <div class="faq">
+      <details><summary>¿Cuánto cuesta el envío?</summary><p>[COSTO DE ENVÍO / GRATIS A PARTIR DE $XXX].</p></details>
+      <details><summary>¿Cómo pago?</summary><p>[MÉTODOS: TARJETA, OXXO, TRANSFERENCIA].</p></details>
+      <details><summary>¿Tienen código de descuento?</summary><p>Puede que haya uno escondido en algún lugar del sitio. Sigue bajando.</p></details>
+      <details><summary>¿Venden a negocios?</summary><p>Sí. Si tienes un estudio, gimnasio, coworking u oficina, escríbenos desde <a href="para-quien.html#colaborar">Para quién</a>.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">Not Coffee</div>
+    <div class="footer-links">
+      <a href="https://instagram.com/">Instagram</a>
+      <a href="https://tiktok.com/">TikTok</a>
+      <a href="mailto:hola@notcoffee.mx">Contacto</a>
+    </div>
+    <div>© <span class="js-anio">2026</span> Not Coffee · Mérida, Yucatán</div>
+  </div>
+  <div class="secreto">
+    <button type="button" class="js-secreto">¿llegaste hasta aquí?</button>
+    <div>
+      <div class="cupon" hidden>
+        <span class="mono" style="color:var(--oliva-texto)">Código de lanzamiento</span>
+        <span class="codigo">PRIMERALATA</span>
+        <small>[XX]% en tu primer pedido de lanzamiento</small>
+        <button type="button" class="btn btn-borde js-copiar">Copiar código</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

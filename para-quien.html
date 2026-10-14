@@ -1,0 +1,114 @@
+<!doctype html>
+<!-- ===================================================================
+  para-quien.html  —  PARA QUIEN ES + COLABORACIONES
+==================================================================== -->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Para quién — Not Coffee</title>
+  <meta name="description" content="Not Coffee es para quien tiene sed y cosas que hacer. Colaboraciones con estudios, coworkings y creadores.">
+  <meta name="theme-color" content="#0D0D0C">
+  <link rel="icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <nav class="wrap" aria-label="Principal">
+    <a href="index.html" class="logo">Not Coffee</a>
+    <div class="menu">
+      <a href="producto.html">Producto</a>
+      <a href="tienda.html">Tienda</a>
+      <a href="para-quien.html" class="activo" aria-current="page">Para quién</a>
+      <a href="inversionistas.html">Inversionistas</a>
+      <a href="index.html#lista" class="btn btn-oliva">Unirme a la lista</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="wrap pagina-top">
+    <div class="mono eyebrow">Para quién</div>
+    <h1>Para cualquiera que tenga sed y cosas que hacer.</h1>
+    <p>No es para un nicho. Es para tu día normal, solo que con más energía.</p>
+  </section>
+
+  <section class="wrap seccion">
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>Después del pilates</h3>
+        <p>Sales del estudio y necesitas reponer líquidos y sales, pero también te queda medio día por delante.</p>
+        <ul><li>Electrolitos para recuperarte</li><li>Cafeína para seguir</li><li>Sin gas, se toma de un jalón</li></ul>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>En la oficina</h3>
+        <p>El tercer café del día te deja seco. Este te despierta y te hidrata.</p>
+        <ul><li>Foco para la tarde</li><li>Cero filas en la cafetería</li><li>Una lata en el refri de la oficina</li></ul>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>Creando contenido</h3>
+        <p>Horas de grabar, editar y publicar sin perder el ritmo.</p>
+        <ul><li>Energía constante</li><li>Una lata que se ve bien a cámara</li></ul>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>Mamás en movimiento</h3>
+        <p>Cuidarte también es tener energía para todo lo demás.</p>
+        <ul><li>Hidratación de verdad</li><li>[REVISAR: ADVERTENCIA DE CAFEÍNA EN LACTANCIA]</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COLABORACIONES ============
+    📘 APRENDE: id="colaborar" permite mandar gente directo aqui con "para-quien.html#colaborar" -->
+  <section id="colaborar" class="wrap seccion">
+    <div class="intro">
+      <h2 class="h2">Colaboremos</h2>
+      <p>Buscamos estar en los lugares donde la gente se cuida.</p>
+    </div>
+    <div class="puntos">
+      <div><b>Estudios de pilates y wellness</b><span>Not Coffee en tu refri, muestras para tus clientes y eventos juntos.</span></div>
+      <div><b>Coworkings y oficinas</b><span>Cajas para tu equipo con precio de negocio.</span></div>
+      <div><b>Creadores de contenido</b><span>Latas, código propio de descuento y contenido juntos.</span></div>
+    </div>
+    <div class="caja">
+      <div><b>¿Tienes un estudio, coworking o comunidad?</b><span>Escríbenos y te mandamos una caja para probar.</span></div>
+      <!-- ✏️ TU CAMBIO: tu correo. ?subject= pone el asunto del correo automatico -->
+      <a href="mailto:hola@notcoffee.mx?subject=Colaboración%20Not%20Coffee" class="btn btn-borde">Colaborar con Not Coffee</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">Not Coffee</div>
+    <div class="footer-links">
+      <a href="https://instagram.com/">Instagram</a>
+      <a href="https://tiktok.com/">TikTok</a>
+      <a href="mailto:hola@notcoffee.mx">Contacto</a>
+    </div>
+    <div>© <span class="js-anio">2026</span> Not Coffee · Mérida, Yucatán</div>
+  </div>
+  <div class="secreto">
+    <button type="button" class="js-secreto">¿llegaste hasta aquí?</button>
+    <div>
+      <div class="cupon" hidden>
+        <span class="mono" style="color:var(--oliva-texto)">Código de lanzamiento</span>
+        <span class="codigo">PRIMERALATA</span>
+        <small>[XX]% en tu primer pedido de lanzamiento</small>
+        <button type="button" class="btn btn-borde js-copiar">Copiar código</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

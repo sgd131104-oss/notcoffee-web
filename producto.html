@@ -1,0 +1,182 @@
+<!doctype html>
+<!-- ===================================================================
+  producto.html  —  PAGINA DE PRODUCTO
+  📘 APRENDE: es igual a las demas paginas (mismo <head>, menu y footer),
+  solo cambia lo que esta dentro de <main>.
+==================================================================== -->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Producto — Not Coffee</title>
+  <meta name="description" content="Qué lleva Not Coffee: agua, cafeína y electrolitos. Cómo se compara con el café y las energéticas.">
+  <meta name="theme-color" content="#0D0D0C">
+  <link rel="icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <nav class="wrap" aria-label="Principal">
+    <a href="index.html" class="logo">Not Coffee</a>
+    <div class="menu">
+      <!-- 📘 APRENDE: aqui "Producto" lleva class="activo" porque estas en esta pagina -->
+      <a href="producto.html" class="activo" aria-current="page">Producto</a>
+      <a href="tienda.html">Tienda</a>
+      <a href="para-quien.html">Para quién</a>
+      <a href="inversionistas.html">Inversionistas</a>
+      <a href="index.html#lista" class="btn btn-oliva">Unirme a la lista</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="wrap pagina-top">
+    <div class="mono eyebrow">Producto</div>
+    <h1>Agua.<br>Cafeína.<br>Electrolitos.</h1>
+    <p>Eso es todo. Una lata de 473 ml, sin gas, que te hidrata y te enfoca al mismo tiempo.</p>
+  </section>
+
+  <!-- ============ INGREDIENTES ============ -->
+  <section class="wrap seccion">
+    <h2 class="h2">Qué lleva</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>Agua</h3>
+        <!-- ✏️ TU CAMBIO: de donde viene o como se trata el agua -->
+        <p>[TIPO DE AGUA: PURIFICADA / MANANTIAL / ALCALINA]. La base de todo.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>Cafeína</h3>
+        <!-- ✏️ TU CAMBIO: mg y de donde sale la cafeina -->
+        <p>[XX] mg por lata, de [FUENTE: NATURAL DE TÉ VERDE / CAFÉ VERDE / SINTÉTICA].</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>Electrolitos</h3>
+        <!-- 📘 APRENDE: <ul> es una lista con puntitos y cada <li> es un punto -->
+        <ul>
+          <li>[SODIO: XX mg]</li>
+          <li>[POTASIO: XX mg]</li>
+          <li>[MAGNESIO: XX mg]</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>Lo que no lleva</h3>
+        <!-- ✏️ TU CAMBIO: confirma con la maquila antes de publicar -->
+        <ul>
+          <li>Gas</li>
+          <li>[AZÚCAR / ENDULZANTES — CONFIRMAR]</li>
+          <li>[COLORANTES — CONFIRMAR]</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TABLA COMPARATIVA ============
+    📘 APRENDE: una tabla. <tr> = fila, <th> = celda de titulo, <td> = celda normal.
+    La columna de Not Coffee lleva class="nos" para resaltarla. -->
+  <section class="wrap seccion">
+    <div class="intro">
+      <h2 class="h2">Contra lo de siempre</h2>
+      <p>No venimos a reemplazar tu café de la mañana. Venimos por el de las 3 de la tarde.</p>
+    </div>
+    <div class="tabla-box">
+      <table>
+        <thead>
+          <tr><th></th><th class="nos">Not Coffee</th><th>Café</th><th>Energética</th><th>Agua</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Te despierta</td><td class="nos">Sí</td><td>Sí</td><td>Sí</td><td>No</td></tr>
+          <tr><td>Te hidrata</td><td class="nos">Sí</td><td>Poco</td><td>Poco</td><td>Sí</td></tr>
+          <tr><td>Electrolitos</td><td class="nos">Sí</td><td>No</td><td>Algunas</td><td>No</td></tr>
+          <tr><td>Gas</td><td class="nos">No</td><td>No</td><td>Sí</td><td>Depende</td></tr>
+          <!-- ✏️ TU CAMBIO: confirma el dato de azucar -->
+          <tr><td>Azúcar</td><td class="nos">[CONFIRMAR]</td><td>Si le pones</td><td>Normalmente sí</td><td>No</td></tr>
+          <tr><td>Se toma frío y rápido</td><td class="nos">Sí</td><td>Casi nunca</td><td>Sí</td><td>Sí</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ CUANDO TOMARLA ============ -->
+  <section class="wrap seccion">
+    <h2 class="h2">Cuándo</h2>
+    <div class="grid-q">
+      <div><span class="mono eyebrow">Mañana</span><h3>Antes de entrenar</h3><p>Energía y electrolitos antes de moverte.</p></div>
+      <div><span class="mono eyebrow">Mediodía</span><h3>Junta tras junta</h3><p>Foco sin otra taza de café.</p></div>
+      <div><span class="mono eyebrow">3 pm</span><h3>El bajón de la tarde</h3><p>La hora para la que la hicimos.</p></div>
+      <div><span class="mono eyebrow">Calor</span><h3>Todo el día en Mérida</h3><p>Reponer lo que se va con el sudor.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ PREGUNTAS FRECUENTES ============
+    📘 APRENDE: cada <details> es una pregunta que se abre al picarle.
+    Para agregar una pregunta, copia un bloque <details>...</details> completo y cambia el texto. -->
+  <section class="wrap seccion">
+    <h2 class="h2">Preguntas</h2>
+    <div class="faq">
+      <details>
+        <summary>¿Cuánta cafeína tiene?</summary>
+        <p>[XX] mg por lata de 473 ml. [COMPARACIÓN: ES COMO X TAZAS DE CAFÉ — CONFIRMAR].</p>
+      </details>
+      <details>
+        <summary>¿Por qué sin gas?</summary>
+        <p>Porque queríamos que se tomara como agua: fácil, rápido y sin sentirte inflado después de entrenar.</p>
+      </details>
+      <details>
+        <summary>¿Quién no debería tomarla?</summary>
+        <!-- ✏️ TU CAMBIO: revisa esta advertencia con la maquila / COFEPRIS -->
+        <p>Contiene cafeína. No se recomienda para niños, mujeres embarazadas o en lactancia, ni personas sensibles a la cafeína. [CONFIRMAR LEYENDA OFICIAL].</p>
+      </details>
+      <details>
+        <summary>¿Dónde se hace?</summary>
+        <p>En México, con una maquila nacional y una fórmula importada.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="lista">
+    <div class="wrap">
+      <h2>¿Te late?</h2>
+      <p>Aparta tus primeras latas o únete a la lista de espera.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <a href="tienda.html" class="btn btn-hueso">Ir a la tienda</a>
+        <a href="index.html#lista" class="btn btn-borde">Unirme a la lista</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">Not Coffee</div>
+    <div class="footer-links">
+      <a href="https://instagram.com/">Instagram</a>
+      <a href="https://tiktok.com/">TikTok</a>
+      <a href="mailto:hola@notcoffee.mx">Contacto</a>
+    </div>
+    <div>© <span class="js-anio">2026</span> Not Coffee · Mérida, Yucatán</div>
+  </div>
+  <div class="secreto">
+    <button type="button" class="js-secreto">¿llegaste hasta aquí?</button>
+    <div>
+      <div class="cupon" hidden>
+        <span class="mono" style="color:var(--oliva-texto)">Código de lanzamiento</span>
+        <span class="codigo">PRIMERALATA</span>
+        <small>[XX]% en tu primer pedido de lanzamiento</small>
+        <button type="button" class="btn btn-borde js-copiar">Copiar código</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
